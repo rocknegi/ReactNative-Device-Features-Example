@@ -3,6 +3,8 @@ import { Container, Header, TabHeading, Tab, Tabs, Icon } from 'native-base';
 import { Text } from 'react-native'
 import propTypes from 'prop-types'
 
+import WelcomeSreen from './WelcomeScrren/WelcomeScreen'
+
 const TopNavigationBar = ({
   h1,
   h2,
@@ -25,6 +27,7 @@ const TopNavigationBar = ({
               <Icon name={icon} />
               <Text style={{ color: '#fff', marginLeft: '5%' }}>{h1}</Text>
             </TabHeading>}>
+            <WelcomeSreen />
         </Tab>
         <Tab heading={h2}>
         </Tab>
