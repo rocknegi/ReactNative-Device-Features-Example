@@ -1,12 +1,20 @@
 import React, { Component } from 'react'
-import { Text, View } from 'react-native'
+import { Container } from 'native-base'
+
+import TopNavigationBar from './TopNavigationBar'
 
 export default class Home extends Component {
     render() {
         return (
-            <View>
-                <Text> textInComponent </Text>
-            </View>
+            <Container>
+                <TopNavigationBar
+                    h1="camera"
+                    h2="Galery"
+                    h3="Location"
+                    icon="camera"
+                />
+            </Container>
         )
     }
 }
+
