@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Dimensions } from 'react-native'
+import { Dimensions, StyleSheet } from 'react-native'
 import { Container, Content } from 'native-base'
 import MapView from 'react-native-maps';
 import Geolocation from '@react-native-community/geolocation';
@@ -18,7 +18,7 @@ export default class Maps extends Component {
             longitude: LONGITUDE,
             latitudeDelta: LATITUDE_DELTA,
             longitudeDelta: LONGITUDE_DELTA,
-          }
+        }
     }
     componentDidMount() {
         Geolocation.getCurrentPosition(
@@ -29,7 +29,7 @@ export default class Maps extends Component {
                         longitude: position.coords.longitude,
                         latitudeDelta: LATITUDE_DELTA,
                         longitudeDelta: LONGITUDE_DELTA,
-                      }
+                    }
                 });
             },
             (error) => console.log(error.message),
@@ -38,7 +38,7 @@ export default class Maps extends Component {
     }
     render() {
         return (
-            <Container>
+            <Container style={{ height: Dimensions.get('window').height / 1.3, }}>
                 <Content>
                     <MapView
                         style={{
