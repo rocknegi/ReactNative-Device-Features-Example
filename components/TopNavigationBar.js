@@ -5,6 +5,7 @@ import propTypes from 'prop-types'
 
 import WelcomeSreen from './WelcomeScrren/WelcomeScreen'
 import Gallery from './Gallery';
+import Maps from './maps/Maps';
 
 const TopNavigationBar = ({
   h1,
@@ -34,6 +35,7 @@ const TopNavigationBar = ({
         <Gallery />
         </Tab>
         <Tab heading={h3}>
+        <Maps />
         </Tab>
       </Tabs>
     </Container>
