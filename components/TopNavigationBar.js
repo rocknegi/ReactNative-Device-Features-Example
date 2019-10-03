@@ -4,6 +4,7 @@ import { Text } from 'react-native'
 import propTypes from 'prop-types'
 
 import WelcomeSreen from './WelcomeScrren/WelcomeScreen'
+import Gallery from './Gallery';
 
 const TopNavigationBar = ({
   h1,
@@ -30,6 +31,7 @@ const TopNavigationBar = ({
             <WelcomeSreen />
         </Tab>
         <Tab heading={h2}>
+        <Gallery />
         </Tab>
         <Tab heading={h3}>
         </Tab>
