@@ -3,6 +3,7 @@ import {createStackNavigator } from 'react-navigation-stack'
 
 import Home from './components/Home'
 import Camera from './components/Camera'
+import SelectedImage from './components/WelcomeScrren/SelectedImage'
 
 const AppNavigator = createStackNavigator ({
   Home:{
@@ -10,6 +11,9 @@ const AppNavigator = createStackNavigator ({
   },
   Camera:{
     screen:Camera
+  },
+  SelectedImage:{
+    screen:SelectedImage
   }
 },{
   initialRouteName: 'Home',

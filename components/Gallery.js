@@ -1,15 +1,17 @@
 import React from 'react';
-import { StyleSheet, View, ScrollView, PermissionsAndroid, Dimensions } from 'react-native'
+import { StyleSheet, Modal, TouchableOpacity, PermissionsAndroid, Dimensions, Image,Text } from 'react-native'
 import FastImage from 'react-native-fast-image'
 import CameraRoll from "@react-native-community/cameraroll";
 import { Container, Content } from 'native-base';
+import {withNavigation} from 'react-navigation'
 
 const width = Dimensions.get('window').width
-const height = Dimensions.get('window').height
 
-export default class Gallery extends React.Component {
+ class Gallery extends React.Component {
   state = {
-    photos: []
+    photos: [],
+    selectedImage:false,
+    uri:''
   }
   getPermission = async () => {
     try {
@@ -49,23 +51,32 @@ export default class Gallery extends React.Component {
     this.getPermission()
 
   }
+  openImage = (uri) => {
+    this.props.navigation.navigate('SelectedImage',{
+      uri
+    })
+  }
 
   render() {
     return (
       <Container style={styles.container}>
         <Content
-        contentContainerStyle={styles.scrollView}>
+          contentContainerStyle={styles.scrollView}>
           {this.state.photos.map((p, i) => {
             return (
-              <FastImage
+              <TouchableOpacity
                 key={i}
-                style={{ width:width/4, height: width/3.2,marginBottom:10}}
-                source={{
-                  uri: p.node.image.uri ,
-                  priority: FastImage.priority.normal,
-                }}
-                resizeMode={FastImage.resizeMode.contain}
-              />
+                onPress={() => this.openImage(p.node.image.uri)}
+              >
+                <FastImage
+                  style={{ width: width / 4, height: width / 3.2, marginBottom: 10 }}
+                  source={{
+                    uri: p.node.image.uri,
+                    priority: FastImage.priority.normal,
+                  }}
+                  resizeMode={FastImage.resizeMode.contain}
+                />
+              </TouchableOpacity>
 
             );
           })}
@@ -75,15 +86,16 @@ export default class Gallery extends React.Component {
   }
 }
 const styles = StyleSheet.create({
-  container :{
-    flex:1,
-    justifyContent:'center',
-    alignItems:'center',
-    marginTop:'5%',
-    height: Dimensions.get('window').height/1.3,
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: '5%',
+    height: Dimensions.get('window').height / 1.3,
   },
   scrollView: {
     flexWrap: 'wrap',
     flexDirection: 'row'
   },
 })
+export default withNavigation(Gallery)

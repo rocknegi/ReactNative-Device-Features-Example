@@ -13,7 +13,7 @@ class WelcomeScreen extends React.Component {
         <TouchableOpacity 
         onPress={()=>this.props.navigation.navigate('Camera')} 
         >        
-        <Icon style={{fontSize:70, color: '#455A64'}} name="camera"/>
+        <Icon style={{fontSize:60, color: '#455A64'}} name="camera"/>
         </TouchableOpacity>
       </Container>
     );

@@ -24,7 +24,7 @@ const TopNavigationBar = ({
   return (
     <StyleProvider style={getTheme(material)}>
       <Container>
-        <Header style={styles.Header} androidStatusBarColor='#455A64'>
+        <Header style={styles.Header} androidStatusBarColor='#aeaeae'>
           <Text style={{ fontWeight: 'bold', fontSize: 25 }}>REACT NATIVE </Text>
         </Header>
         <Content>
